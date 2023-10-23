@@ -35,6 +35,20 @@ namespace CustomerConsoleDB
             }
             Console.WriteLine("\n");
 
+            Console.WriteLine("############## Customers whose names contains the string 'Doe' ##############");
+            var customerContainsDoe = customerList.Where(c => c.Name.Contains("Doe")).ToList();
+            if (customerContainsDoe.Count > 0)
+            {
+                foreach (var customer in customerContainsDoe)
+                {
+                    Console.WriteLine($"{customer.Name}, {customer.Age}, {customer.Email}");
+                }
+            }
+            else
+            {
+                Console.WriteLine("No name contains 'Doe'");
+            }
+            Console.WriteLine("\n");
         }
 
         public void SaveCustomerList()
