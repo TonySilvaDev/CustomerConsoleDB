@@ -20,7 +20,10 @@ namespace CustomerConsoleDB.Repository
 
         public List<Customer> GetCustomersListByAgeRange(int startAge, int endAge)
         {
-            throw new NotImplementedException();
+            using (var context = new ApplicationDbContext())
+            {
+                return context.Customer.Where(c => c.Age >= startAge && c.Age <= endAge).ToList();
+            }
         }
 
         public void SaveCustomer(Customer customer)

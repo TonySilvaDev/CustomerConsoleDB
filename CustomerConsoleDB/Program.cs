@@ -13,3 +13,5 @@ App customerApp = builder.GetRequiredService<App>();
 customerApp.SaveCustomerList();
 
 customerApp.GetCustomerList();
+
+customerApp.GetCustomersListByAgeRange();

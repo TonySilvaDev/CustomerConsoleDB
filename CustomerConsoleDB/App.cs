@@ -65,6 +65,27 @@ namespace CustomerConsoleDB
             Console.WriteLine("\n");
         }
 
+        public void GetCustomersListByAgeRange()
+        {
+            Console.WriteLine("############## Customer list by age range ##############");
+            int startAge = 25;
+            int endAge = 50;
+            Console.WriteLine($"Start age: {startAge} | End age: {endAge}");
+            if (startAge > endAge)
+            {
+                Console.WriteLine("Start age must be less than end age");
+            }
+            else
+            {
+                var customersByAgeRange = _data.GetCustomersListByAgeRange(startAge, endAge);
+                foreach (var customer in customersByAgeRange)
+                {
+                    Console.WriteLine($"{customer.Name}, {customer.Age}, {customer.Email}");
+                }
+            }
+            Console.WriteLine("\n");
+        }
+
         public void SaveCustomerList()
         {
             Console.WriteLine("############## Populate customer list ##############");
