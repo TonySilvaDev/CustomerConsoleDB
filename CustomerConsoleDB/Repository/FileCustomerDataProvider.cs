@@ -1,4 +1,5 @@
-﻿using CustomerConsoleDB.Repository.IRepository;
+﻿using CustomerConsoleDB.Data;
+using CustomerConsoleDB.Repository.IRepository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,7 +27,11 @@ namespace CustomerConsoleDB.Repository
 
         public void SaveCustomerList(List<Customer> customerList)
         {
-            throw new NotImplementedException();
+            using (var context = new ApplicationDbContext())
+            {
+                context.Customer.AddRange(customerList);
+                context.SaveChanges();
+            }
         }
     }
 }
