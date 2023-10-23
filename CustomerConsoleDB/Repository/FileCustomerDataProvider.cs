@@ -28,7 +28,11 @@ namespace CustomerConsoleDB.Repository
 
         public void SaveCustomer(Customer customer)
         {
-            throw new NotImplementedException();
+            using (var context = new ApplicationDbContext())
+            {
+                context.Customer.Add(customer);
+                context.SaveChanges();
+            }
         }
 
         public void SaveCustomerList(List<Customer> customerList)

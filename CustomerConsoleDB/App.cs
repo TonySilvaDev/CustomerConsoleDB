@@ -86,6 +86,22 @@ namespace CustomerConsoleDB
             Console.WriteLine("\n");
         }
 
+        public void SaveCustomer()
+        {
+            Console.WriteLine("############## Save customer ##############");
+            Customer customer = new Customer()
+            {
+                Name = "Julio",
+                Age = 55,
+                Email = "julio@testmail.com"
+            };
+
+            _data.SaveCustomer(customer);
+
+            Console.WriteLine($"Added 1 customer");
+            Console.WriteLine("\n");
+        }
+
         public void SaveCustomerList()
         {
             Console.WriteLine("############## Populate customer list ##############");

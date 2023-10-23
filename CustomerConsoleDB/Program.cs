@@ -15,3 +15,5 @@ customerApp.SaveCustomerList();
 customerApp.GetCustomerList();
 
 customerApp.GetCustomersListByAgeRange();
+
+customerApp.SaveCustomer();
