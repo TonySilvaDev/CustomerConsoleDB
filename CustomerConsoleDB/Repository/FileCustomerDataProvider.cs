@@ -12,7 +12,10 @@ namespace CustomerConsoleDB.Repository
     {
         public List<Customer> GetCustomerList()
         {
-            throw new NotImplementedException();
+            using (var context = new ApplicationDbContext())
+            {
+                return context.Customer.ToList();
+            }
         }
 
         public List<Customer> GetCustomersListByAgeRange(int startAge, int endAge)

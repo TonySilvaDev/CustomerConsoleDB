@@ -16,6 +16,27 @@ namespace CustomerConsoleDB
             _data = data;
         }
 
+        public void GetCustomerList()
+        {
+            var customerList = _data.GetCustomerList();
+
+            Console.WriteLine("############## Customers older than 30 years ##############");
+            var customersOlderThan30 = customerList.Where(c => c.Age > 30).ToList();
+            if (customersOlderThan30.Count > 0)
+            {
+                foreach (var customer in customersOlderThan30)
+                {
+                    Console.WriteLine($"{customer.Name}, {customer.Age}, {customer.Email}");
+                }
+            }
+            else
+            {
+                Console.WriteLine("No customer older than 30");
+            }
+            Console.WriteLine("\n");
+
+        }
+
         public void SaveCustomerList()
         {
             Console.WriteLine("############## Populate customer list ##############");
